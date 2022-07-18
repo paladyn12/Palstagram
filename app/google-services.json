@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "604121126028",
+    "project_id": "palstagram-d0770",
+    "storage_bucket": "palstagram-d0770.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604121126028:android:c6a89ef2d86202041517a9",
+        "android_client_info": {
+          "package_name": "com.example.palstagram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604121126028-j22m5110n6v1ndlcgukvv9cdd80t3nhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcg_bu4esloEyxewcGGxuyYR1UXygJRSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604121126028-j22m5110n6v1ndlcgukvv9cdd80t3nhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
