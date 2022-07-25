@@ -6,15 +6,20 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View.GONE
+import androidx.constraintlayout.widget.ConstraintSet.GONE
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.palstagram.navigation.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.core.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+        setToolbarDefault()
         when(p0.itemId){
             R.id.action_home -> {
                 var detailViewFragment = DetailViewFragment()
@@ -39,12 +44,23 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.action_account -> {
                 var userFragment = UserFragment()
+                var bundle = Bundle()
+                var uid = FirebaseAuth.getInstance().currentUser?.uid
+                bundle.putString("destinationUid",uid)
+                userFragment.arguments = bundle
                 supportFragmentManager.beginTransaction().replace(R.id.main_content,userFragment).commit()
                 return true
             }
         }
         return false
     }
+
+    fun setToolbarDefault(){
+        toolbar_username.visibility = android.view.View.GONE
+        toolbar_btn_back.visibility = android.view.View.GONE
+        toolbar_title_image.visibility = android.view.View.VISIBLE
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

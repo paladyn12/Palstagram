@@ -87,6 +87,18 @@ class DetailViewFragment : Fragment(){
 
 
             }
+
+            //This code is when the profile image is clicked
+            viewholder.detailviewitem_profile_image.setOnClickListener {
+                var fragment = UserFragment()
+                var bundle = Bundle()
+                bundle.putString("destinationUid",contentDTOs[p1].uid)
+                bundle.putString("userId",contentDTOs[p1].userId)
+                fragment.arguments = bundle
+                activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_content,fragment)?.commit()
+
+            }
+
         }
 
         override fun getItemCount(): Int {
